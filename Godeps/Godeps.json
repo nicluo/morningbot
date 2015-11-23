@@ -1,0 +1,23 @@
+{
+	"ImportPath": "github.com/nicluo/morningbot",
+	"GoVersion": "go1.5.1",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/boltdb/bolt",
+			"Comment": "v1.1.0-10-g1198580",
+			"Rev": "119858097e94ac1089c404206de6f2eef3b22a9b"
+		},
+		{
+			"ImportPath": "github.com/kardianos/osext",
+			"Rev": "6e7f843663477789fac7c02def0d0909e969b4e5"
+		},
+		{
+			"ImportPath": "github.com/tucnak/telebot",
+			"Comment": "v1.0-27-g72ce8fa",
+			"Rev": "72ce8fae88cff87483f2dc0689f12283b4dc08b6"
+		}
+	]
+}
