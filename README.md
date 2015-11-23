@@ -2,7 +2,7 @@
 
 > Says Good Morning to you on Telegram!
 
-[Click here for MorningBot](telegram.me/morning_bot)
+[Click here for MorningBot](https://telegram.me/morning_bot)
 
 ## Special Thanks
 
