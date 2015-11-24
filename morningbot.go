@@ -80,7 +80,9 @@ func InitMorningBot(name string, bot *telebot.Bot, lg *log.Logger, config map[st
 func (m *MorningBot) getDefaultFuncMap() FuncMap {
   return FuncMap{
     "/start":           m.Start,
+    "/help":            m.Start,
     "/subscribe":       m.Subscribe,
+    "/unsubscribe":     m.Unsubscribe,
   }
 }
 

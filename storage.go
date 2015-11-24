@@ -10,7 +10,7 @@ import (
 )
 
 // saveUserToDB saves the given user to the time bucket in Bolt.
-func (m *MorningBot) saveUserToDB(sender *telebot.User) error {
+func (m *MorningBot) saveUser(sender *telebot.User) error {
   userID := strconv.Itoa(sender.ID)
 
   err := m.db.Update(func(tx *bolt.Tx) error {
@@ -23,6 +23,29 @@ func (m *MorningBot) saveUserToDB(sender *telebot.User) error {
     }
 
     err = gb.Put([]byte(userID), []byte(time.Now().Format(time.RFC3339)))
+    if err != nil {
+      return err
+    }
+
+    return nil
+  })
+  return err
+}
+
+// saveUserToDB saves the given user to the time bucket in Bolt.
+func (m *MorningBot) removeUser(sender *telebot.User) error {
+  userID := strconv.Itoa(sender.ID)
+
+  err := m.db.Update(func(tx *bolt.Tx) error {
+    b := tx.Bucket(subscriptions_bucket_name)
+
+    // temporarily hardcode for GMT Offset
+    gb, err := b.CreateBucketIfNotExists([]byte("+8"))
+    if err != nil {
+      return err
+    }
+
+    err = gb.Delete([]byte(userID))
     if err != nil {
       return err
     }
