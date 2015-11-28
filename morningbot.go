@@ -142,7 +142,7 @@ func (m *MorningBot) parseMessage(msg *telebot.Message) *message {
         break
       }
     }
-  } else {
+  } else if msg.Text != "" {
     msgTokens := strings.Split(msg.Text, " ")
     cmd, args = strings.ToLower(msgTokens[0]), msgTokens[1:]
   }
